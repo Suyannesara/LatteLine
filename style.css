@@ -13,6 +13,8 @@
 body {
   width: 100%;
   height: 100%;
+
+  font-family: 'Inter', sans-serif;
 }
 
 
@@ -80,8 +82,6 @@ header a{
 
   background-color: var(--base-gray);
   border: none;
-
-  font-family: 'Inter', sans-serif;
 }
 
 .card p{
@@ -139,3 +139,18 @@ header a{
   justify-self: center;
 }
 
+.delivery-box {
+  padding: 0px 10% 0px 10%;
+}
+
+.quantity button {
+  width: 35px;
+  margin: 0 10px 0 10px;
+}
+
+.line {
+  width: 15%;
+  height: 0.5px;
+  margin-top: 10px;
+  background-color: var(--base-black);
+}
