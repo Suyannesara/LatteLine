@@ -114,3 +114,28 @@ header a{
   transition: 800ms;
 }
 
+/*SECTION 2 - PEDIDO*/
+#pedido{
+  display: flex;
+  flex-direction: column;
+}
+
+.pedido-title {
+  width: 100%;
+  height: 200px;
+
+  background-image: url(images/bgPedido.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: white;
+}
+
+#pedido .card {
+  width: 90%;
+  margin: 0;
+  margin-top: -40px;
+  align-self: center;
+  justify-self: center;
+}
+
