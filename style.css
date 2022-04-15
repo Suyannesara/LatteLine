@@ -1,3 +1,10 @@
+:root{
+  --primary-brown: #723C3C;
+  --base-black: black;
+  --base-gray: #F5F5F5; 
+
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +14,10 @@ body {
   width: 100%;
   height: 100%;
 }
+
+
+/*MOBILE*/
+/*HEADER -MOBILE*/
 
 header {
   padding: 8%;
@@ -39,7 +50,7 @@ header a{
 
 .btn-site {
   margin-top: 20%;
-  padding: 10px 40px 10px 40px;
+  padding: 10px 50px 10px 50px;
   background-color: black;
   color: white;
   font-weight: 600;
@@ -50,3 +61,52 @@ header a{
   color: black;
   background-color: transparent;
 }
+
+/*1 SECTION -PRODUCTS*/
+.products {
+  flex-wrap: wrap;
+
+}
+
+
+/*PRODUCTS - CARD*/
+.card {
+  width: 16rem;
+  margin: 2%;
+
+  background-color: var(--base-gray);
+  border: none;
+
+  font-family: 'Inter', sans-serif;
+}
+
+.card p{
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.card:hover{
+  cursor: pointer;
+}
+
+.btn-card {
+  width: 100%;
+  background-color: var(--primary-brown);
+  color: #FFFF;
+
+  border-radius: 6;
+  font-size: 14px;
+}
+
+.btn-card img{
+  width: 15%;
+  margin-right: 15px;
+  margin-bottom: 4px;
+}
+
+.btn-card:hover{
+  color: white;
+  background-color: var(--base-black);
+  transition: 800ms;
+}
+
