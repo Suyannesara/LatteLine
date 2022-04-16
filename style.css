@@ -154,3 +154,38 @@ header a{
   margin-top: 10px;
   background-color: var(--base-black);
 }
+
+
+/*DESKTOP*/
+@media(min-width:600px){
+  header {
+    padding: 2% 0px 0% 0px;
+  
+  }
+
+  .home-content {
+    margin-top: 8%;
+  }
+
+  .logo-social {
+    display: flex;
+  }
+
+  .social-media {
+    margin: 15%;
+    height: 200px;
+    flex-direction: column;
+  }
+
+  header a {
+    margin-top: 0;
+    position: relative;
+    bottom: 100px;
+  }
+
+  .btn-site {
+    width: 350px;
+  }
+
+
+}
