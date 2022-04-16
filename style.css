@@ -69,11 +69,14 @@ header a{
 }
 
 /*1 SECTION -PRODUCTS*/
+.products-title {
+  margin: 4% 0% 2% 4%;
+}
+
 .products {
   flex-wrap: wrap;
 
 }
-
 
 /*PRODUCTS - CARD*/
 .card {
@@ -131,6 +134,11 @@ header a{
   color: white;
 }
 
+.pedido-title img{
+  width: 100%;
+  padding-left: 2%;
+}
+
 #pedido .card {
   width: 90%;
   margin: 0;
@@ -185,6 +193,11 @@ header a{
 
   .btn-site {
     width: 350px;
+  }
+
+  .pedido-title img{
+    width: 50%;
+    padding-left: 2%;
   }
 
 
