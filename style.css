@@ -200,5 +200,14 @@ header a{
     padding-left: 2%;
   }
 
+  #pedido .card {
+    width: 50%;
+  }
+
+
+  .btn-delivery {
+    width: 100%;
+  }
+
 
 }
