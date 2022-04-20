@@ -64,17 +64,17 @@
     </div>
 
     <div class="card card-delivery">
-      <div class="card-body card-del">
+      <div class="card-body card-deli">
         <!-- Conteúdo que deverá ser inserido pelo JS  -->
         <div class="delivery-box">
           <p class="delivery-name">Nome do pedido adicionado</p>
-          <div class="delivery-price qtd-price d-flex justify-content-between">
+          <div class="qtd-price d-flex justify-content-between">
             <div class="quantity">
               <div class="btn btn-card plus" href="">-</div>
-              <div class="qt">0</div>
+              <div class="qt delivery-qt">0</div>
               <div class="btn btn-card less" href="">+</div>
             </div>
-            <div class="price">XXX</div>
+            <div class="delivery-price">XXX</div>
           </div>
 
           <div class="line"></div>
@@ -159,16 +159,24 @@
 
       if (check == true){
         deliveryList[id] = deliveryList[id]
-        alert("Esse produto já foi added to the list")
+        alert("Esse produto já foi adicionado à lista")
+
+
       }else{
         deliveryList.push(list[id]);
-        let d = document.querySelector(".card-del").cloneNode(true);
+        let d = document.querySelector(".delivery-box").cloneNode(true);
+
+        //Modify informations
+        d.querySelector(".delivery-price").innerHTML = list[id].price;
+        d.querySelector(".delivery-name").innerHTML = list[id].name;
+        d.querySelector(".delivery-qt").innerHTML = list[id].qt;
+      
+        
         document.querySelector(".card-delivery").append(d);
       }
 
       alert(JSON.stringify(deliveryList))
 
-     
     }
 
     takeProductsList();
