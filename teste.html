@@ -51,7 +51,7 @@
           <p class="card-title title">Produto XX</p>
           <h5 class="card-title price">R$20</h5>
         </div>
-      <button onclick="readData()" class="btn btn-card"><img src="images/cartIcon.svg" alt="">Add to cart</button>
+      <button class="btn btn-card"><img src="images/cartIcon.svg" alt="">Add to cart</button>
     </div>
     <br>
 
@@ -66,7 +66,7 @@
     <div class=" card card-delivery">
       <div class="card-body">
         <!-- Conteúdo que deverá ser inserido pelo JS  -->
-        <div class="delivery-box" id="delivery1">
+        <div class="delivery-box">
           <p>Nome do pedido adicionado</p>
           <div class="qtd-price d-flex justify-content-between">
             <div class="quantity">
@@ -74,7 +74,7 @@
               <div class="qt">0</div>
               <div class="btn btn-card less" href="">+</div>
             </div>
-            <div class="price">R$160,00</div>
+            <div class="price">XXX</div>
           </div>
 
           <div class="line"></div>
@@ -108,8 +108,10 @@
     }
 
     function clone(){
+      let i = 0;
 
       for (const p of list) {
+        let id = i;
         //Clone
         let product = document.querySelector(".product").cloneNode(true);
 
@@ -120,18 +122,39 @@
         /*
         product.querySelector(".qt").innerText = p.qt;*/
 
+        //Add elements to cart
+        product.querySelector(".btn-card").addEventListener("click", function(){
+        // id - to know qhat element it is
+        changeQt(id, 1)})
+        
+
         document.querySelector(".list").append(product);
+
+        //increment
+        i++;
         
       }
 
       document.querySelector(".product").remove();
-
       
+    }
+
+    function changeQt(id, qt){
+      let p =  list[id];
+      p.qt += qt;
+      console.log(p.qt);
+
+      //add element to delivery list
+
+
+      //make qt change on screen
+      document.getElementsByClassName("qt")[id] = p.qt;
+
     }
 
     takeProductsList();
     
-
+    
     
   </script>
 
