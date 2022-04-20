@@ -63,12 +63,12 @@
       <img src="images/dadosPedido.png" alt="Dados do pedido">
     </div>
 
-    <div class=" card card-delivery">
-      <div class="card-body">
+    <div class="card card-delivery">
+      <div class="card-body card-del">
         <!-- Conteúdo que deverá ser inserido pelo JS  -->
         <div class="delivery-box">
-          <p>Nome do pedido adicionado</p>
-          <div class="qtd-price d-flex justify-content-between">
+          <p class="delivery-name">Nome do pedido adicionado</p>
+          <div class="delivery-price qtd-price d-flex justify-content-between">
             <div class="quantity">
               <div class="btn btn-card plus" href="">-</div>
               <div class="qt">0</div>
@@ -93,6 +93,7 @@
 
   <script>
     let list = [];
+    let deliveryList = []
 
     function takeProductsList(){
       let ajax = new XMLHttpRequest();
@@ -125,9 +126,10 @@
         //Add elements to cart
         product.querySelector(".btn-card").addEventListener("click", function(){
         // id - to know qhat element it is
-        changeQt(id, 1)})
+        changeQt(id, 1)
+        showOnDelivery(id, p);
+        });
         
-
         document.querySelector(".list").append(product);
 
         //increment
@@ -144,12 +146,29 @@
       p.qt += qt;
       console.log(p.qt);
 
-      //add element to delivery list
-
-
       //make qt change on screen
       document.getElementsByClassName("qt")[id] = p.qt;
 
+    }
+    
+
+    //Add element to delivery list
+    function showOnDelivery(id, p){
+
+      let check = deliveryList.includes(list[id])
+
+      if (check == true){
+        deliveryList[id] = deliveryList[id]
+        alert("Esse produto já foi added to the list")
+      }else{
+        deliveryList.push(list[id]);
+        let d = document.querySelector(".card-del").cloneNode(true);
+        document.querySelector(".card-delivery").append(d);
+      }
+
+      alert(JSON.stringify(deliveryList))
+
+     
     }
 
     takeProductsList();
