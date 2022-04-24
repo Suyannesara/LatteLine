@@ -1,37 +1,37 @@
 [
   {
     "name": "Empada <br> Clássica",
-    "price": "20,00",
+    "price": 10.00,
     "qt": 0,
     "img": "images/card1.png"
   },
   {
     "name": "Recheado <br> Misto",
-    "price": "86,00",
+    "price": 86.00,
     "qt": 0,
     "img": "images/card2.png"
   },
   {
     "name": "Recheado <br> Morango",
-    "price": "95,00",
+    "price": 95.00,
     "qt": 0,
     "img": "images/card3.png"
   },
   {
     "name": "Recheado <br> brigadeiro",
-    "price": "90,00",
+    "price": 90.00,
     "qt": 0,
     "img": "images/card4.png"
   },
   {
     "name": "Recheado <br> beijinho",
-    "price": "88,00",
+    "price": 88.00,
     "qt": 0,
     "img": "images/card5.png"
   },
   {
     "name": "Combo <br> recheados",
-    "price": "235,00",
+    "price": 235.00,
     "qt": 0,
     "img": "images/card6.png"
   }

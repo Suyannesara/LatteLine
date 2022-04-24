@@ -18,6 +18,21 @@
   <!-- LINK CSS -->
   <link rel="stylesheet" href="style.css">
 
+  <style>
+    .add-remove {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-card{
+      width: 100%;
+      margin: 0 20px 0 20px;
+    }
+
+
+  </style>
+
 </head>
 <body>
   <!-- HEADER SECTION  -->
@@ -51,7 +66,13 @@
           <p class="card-title title">Produto XX</p>
           <h5 class="card-title price">R$20</h5>
         </div>
-      <button class="btn btn-card"><img src="images/cartIcon.svg" alt="">Add to cart</button>
+
+      <div class="add-remove">
+        <button class="plus btn btn-card">+</button>
+        <div class="qt">0</div>
+        <button class="less btn btn-card">-</button>
+      </div>
+      
     </div>
     <br>
 
@@ -64,23 +85,9 @@
     </div>
 
     <div class="card card-delivery">
-      <div class="card-body card-deli">
-        <!-- Conteúdo que deverá ser inserido pelo JS  -->
-        <div class="delivery-box">
-          <p class="delivery-name">Nome do pedido adicionado</p>
-          <div class="qtd-price d-flex justify-content-between">
-            <div class="quantity">
-              <div class="btn btn-card plus" href="">+</div>
-              <div class="qt delivery-qt" id="qt">0</div>
-              <div class="btn btn-card less" href="">-</div>
-            </div>
-            <div class="delivery-price">XXX</div>
-          </div>
+      <p id="dev"></p>
 
-          <div class="line"></div>
-        </div>
-      </div>
-        
+
       <a href="#" class="btn btn-site btn-delivery">Fazer Pedido</a>
     </div>
 
@@ -116,15 +123,13 @@
         product.querySelector(".title").innerHTML = p.name;
         product.querySelector(".price").innerHTML = p.price;
         product.querySelector("img").src = p.img;
-        /*
-        product.querySelector(".qt").innerText = p.qt;*/
 
         //Add elements to cart
-        product.querySelector(".btn-card").addEventListener("click", function(){
+        product.querySelector(".plus").addEventListener("click", function(){
         // id - to know qhat element it is
         changeQt(id, 1)
-        showOnDelivery(id, p);
         });
+        product.querySelector(".less").addEventListener("click", function(){changeQt(id, -1)});
         
         document.querySelector(".list").append(product);
 
@@ -139,47 +144,70 @@
 
     function changeQt(id, qt){
       let p =  list[id];
+      //Change qt and price
       p.qt += qt;
-      console.log(p.qt);
-
-      document.getElementsByClassName("qt")[id] = p.qt;
-
-    }
-    
-
-    //Add element to delivery list
-    function showOnDelivery(id, p){
-
-      let d = document.querySelector(".delivery-box").cloneNode(true);
+      
+      
+      document.getElementsByClassName("qt")[id].innerHTML = p.qt;
 
       let check = deliveryList.includes(list[id])
-
       if (check == true){
-        //d.querySelector(".qt").innerHTML = list[id].qt;
-        //document.getElementsByClassName("qt").innerHTML = list[id].qt;
-        deliveryList[id] = deliveryList[id]
-        alert("Esse produto já foi adicionado à lista")
+
+        console.log(deliveryList)
         
+        fillContent(id)
+
       }else{
         deliveryList.push(list[id]);
-
-        //Modify informations
-        d.querySelector(".delivery-price").innerHTML = list[id].price;
-        d.querySelector(".delivery-name").innerHTML = list[id].name;
-        d.querySelector(".delivery-qt").innerHTML = list[id].qt;
-
-        //Add and retire quantity
-        document.querySelector(".less").addEventListener("click", function(){changeQt(id, -1)});
-        document.querySelector(".plus").addEventListener("click", function(){changeQt(id, 1)});
-      
-        
-        document.querySelector(".card-delivery").append(d);
       }
-      
-
-      alert(JSON.stringify(deliveryList))
 
     }
+
+    function calcPrice (){
+      let a = deliveryList
+      for(let i = 0; i <= deliveryList.length; i++){
+        deliveryList[i].price *= list.qt 
+      }
+
+    }
+
+    function fillContent(id){
+      var a = JSON.stringify(deliveryList)
+      document.getElementById("dev").innerHTML = `<p>${a[id].name}<p>`
+    }
+
+
+    //Add element to delivery list
+    // function showOnDelivery(id, p){
+
+    //   let check = deliveryList.includes(list[id])
+
+    //   if (check == true){
+    //     //d.querySelector(".qt").innerHTML = list[id].qt;
+    //     //document.getElementsByClassName("qt").innerHTML = list[id].qt;
+    //     deliveryList[id] = deliveryList[id]
+    //     alert("Esse produto já foi adicionado à lista")
+        
+    //   }else{
+    //     deliveryList.push(list[id]);
+
+    //     //Modify informations
+    //     d.querySelector(".delivery-price").innerHTML = list[id].price;
+    //     d.querySelector(".delivery-name").innerHTML = list[id].name;
+    //     d.querySelector(".delivery-qt").innerHTML = list[id].qt;
+
+    //     //Add and retire quantity
+    //     document.querySelector(".less").addEventListener("click", function(){changeQt(id, -1)});
+    //     document.querySelector(".plus").addEventListener("click", function(){changeQt(id, 1)});
+      
+        
+    //     document.querySelector(".card-delivery").append(d);
+    //   }
+      
+
+    //   alert(JSON.stringify(deliveryList))
+
+    // }
 
     takeProductsList();
     
