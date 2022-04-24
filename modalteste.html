@@ -85,8 +85,12 @@
     </div>
 
     <div class="card card-delivery">
-      <p id="dev"></p>
-
+      <p class="dev"></p>
+      <p class="dev"></p>
+      <p class="dev"></p>
+      <p class="dev"></p>
+      <p class="dev"></p>
+      <p class="dev"></p>
 
       <a href="#" class="btn btn-site btn-delivery">Fazer Pedido</a>
     </div>
@@ -173,44 +177,11 @@
 
     function fillContent(id){
       var a = JSON.stringify(deliveryList)
-      document.getElementById("dev").innerHTML = `<p>${a[id].name}<p>`
+      document.querySelector(".dev").innerHTML = `<p>${JSON.stringify(deliveryList[id].name)}<p>`
     }
 
 
-    //Add element to delivery list
-    // function showOnDelivery(id, p){
-
-    //   let check = deliveryList.includes(list[id])
-
-    //   if (check == true){
-    //     //d.querySelector(".qt").innerHTML = list[id].qt;
-    //     //document.getElementsByClassName("qt").innerHTML = list[id].qt;
-    //     deliveryList[id] = deliveryList[id]
-    //     alert("Esse produto já foi adicionado à lista")
-        
-    //   }else{
-    //     deliveryList.push(list[id]);
-
-    //     //Modify informations
-    //     d.querySelector(".delivery-price").innerHTML = list[id].price;
-    //     d.querySelector(".delivery-name").innerHTML = list[id].name;
-    //     d.querySelector(".delivery-qt").innerHTML = list[id].qt;
-
-    //     //Add and retire quantity
-    //     document.querySelector(".less").addEventListener("click", function(){changeQt(id, -1)});
-    //     document.querySelector(".plus").addEventListener("click", function(){changeQt(id, 1)});
-      
-        
-    //     document.querySelector(".card-delivery").append(d);
-    //   }
-      
-
-    //   alert(JSON.stringify(deliveryList))
-
-    // }
-
     takeProductsList();
-    
     
     
   </script>
