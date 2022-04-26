@@ -88,6 +88,26 @@
 
   </section>
 
+   <!-- MODAL -->
+ <div class="w3-container">
+  
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-teal"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>Detalhes do seu pedido</h2>
+      </header>
+      <div id="modal-body" class="modal-body w3-container">
+        <p>Nenhum pedido selecionado</p>
+      </div>
+      <footer class="w3-container w3-teal">
+        <button onclick="send()" disabled id="send" >Enviar</button>
+      </footer>
+    </div>
+  </div>
+</div>
+
 
   <script>
     let list = [];
@@ -139,7 +159,7 @@
 
     function changeQt(id, qt){
       let p =  list[id];
-      //Change qt and price
+      //Change qt 
       p.qt += qt;
       
       
@@ -156,55 +176,52 @@
 
     }
 
+    let modalMsg = "";
+
     function showOnDelivery(){
-      let modalMsg = "";
+      document.getElementById('id01').style.display='block';
       let subTotal = 0;
       let total = 0;
 
       for (const product of list){
         if(product.qt > 0){
-          subTotal = product.price * product.qt
+          subTotal = (product.price * product.qt, 2).toFixed(2)
           total += subTotal;
           
           modalMsg += `<p>${product.name.toUpperCase()} (R$ ${product.price} X ${product.qt} = ${subTotal}</p>`
-
-          document.getElementById("modal-body").innerHTML = "aaaaaa"
 
           console.log(product)
 
         }
       }
 
-      document.querySelector(".modal-body").innerHTML = "aaaaaa"
+      if (modalMsg == ""){
+        modalMsg = `<p>Nenhum produto selecionado</p>`
+        document.querySelector("send").disabled = disabled;
 
-        
+      }else {
+        //Do nothing
+        document.querySelector("#send").disabled = "";
+      }
+
+
+      //Inserting content inside the modal
+      document.querySelector(".modal-body").innerHTML = modalMsg;
+     
+    }
+
+    function send(){
+      let fone = "61991793777"
+      let pedido = modalMsg;
+
+      link = `https://api.whatsapp.com/send?phone=${fone}$text=${pedido}`;
+      window.open(link, "_blanck")
+
     }
 
     takeProductsList();
     
   </script>
-
-
- <!-- MODAL -->
- <div class="w3-container">
-  
-  <div id="id01" class="w3-modal">
-    <div class="w3-modal-content">
-      <header class="w3-container w3-teal"> 
-        <span onclick="document.getElementById('id01').style.display='none'" 
-        class="w3-button w3-display-topright">&times;</span>
-        <h2>Detalhes do seu pedido</h2>
-      </header>
-      <div id="modal-body" class="modal-body w3-container">
-        <p>Nenhum pedido selecionado</p>
-        <b>Total: <span id="total"></span></b>
-      </div>
-      <footer class="w3-container w3-teal">
-        <button disabled>Enviar</button>
-      </footer>
-    </div>
-  </div>
-</div>
 
 
 </body>
