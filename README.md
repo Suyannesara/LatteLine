@@ -25,7 +25,7 @@
 - [x] Order registration
 - [x] Order sending using the whatsapp api system
 
-<h2 align="center" id="tools">CAP2 - Functionalities</h2>
+<h2 align="center" id="tools">CAP3 - Tools used in the project</h2>
 
 - Html
 - Css
