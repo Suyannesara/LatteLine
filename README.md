@@ -1,6 +1,6 @@
 <h2 align="center">🍫 Welcome to the Chocolates Paradise</h2>
 <h3 align="center" >
-  <a href="#the-problem">The Problem</a>  •   <a href="#features">Features</a>
+  <a href="#the-problem">The Problem</a>  •   <a href="#features">Functionalities</a> •   <a href="#tools">Used tools</a>
 </h4> 
 <br>
 <h4 align="center">
@@ -24,6 +24,14 @@
 
 - [x] Order registration
 - [x] Order sending using the whatsapp api system
+
+<h2 align="center" id="tools">CAP2 - Functionalities</h2>
+
+- Html
+- Css
+- Bootstrap
+- JavaScript
+- Whatsapp API
 
 <br>
 <h2 align="center">👩🏻Thanks for reading, hope you like it!</h2> <br>
